@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Splitter</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="tittle">
+                <h1>
+                    SPLI <br />
+                    TTER
+                </h1>
+            </div>
+
+            <div class="main-card">
+                <div class="left-side">
+                    <div class="left-side-card">
+                        <div class="bill-amount">
+                            <label for="bill">Bill</label>
+                            <input type="text" name="bill" id="bill" />
+                        </div>
+
+                        <div class="tip-percentage">
+                            <p>Select Tip %</p>
+                            <div class="tip-opts">
+                                <div class="tip-opts-topside">
+                                    <button class="tip-percentage-button">
+                                        5%
+                                    </button>
+                                    <button class="tip-percentage-button">
+                                        10%
+                                    </button>
+                                    <button class="tip-percentage-button">
+                                        15%
+                                    </button>
+                                </div>
+                                <div class="tip-opts-downside">
+                                    <button class="tip-percentage-button">
+                                        25%
+                                    </button>
+                                    <button class="tip-percentage-button">
+                                        50%
+                                    </button>
+                                    <input
+                                        type="text"
+                                        placeholder="custom"
+                                        class="tip-percentage-button"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="people">
+                            <label for="number-of-people"
+                                >Number of people</label
+                            >
+                            <input
+                                type="text"
+                                name="number-of-people"
+                                id="number-of-people"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-side">
+                    <div class="right-side-card">
+                        <div class="values-container">
+                            <div class="tip-amount">
+                                <div class="amount-text">
+                                    Tip Amount <br />
+                                    <a>/ person</a>
+                                </div>
+                                <div class="tip-value">$0.00</div>
+                            </div>
+
+                            <div class="total-amount">
+                                <div class="total-text">
+                                    Total <br />
+                                    <a>/ person</a>
+                                </div>
+                                <div class="total-value">$0.00</div>
+                            </div>
+                        </div>
+                        <button class="reset-button">RESET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Space Mono", monospace;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: hsl(185, 41%, 84%);
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-card {
+    background-color: hsl(189, 41%, 97%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+    padding: 32px;
+    border-radius: 25px;
+}
+
+.left-side {
+    height: 100%;
+    width: 50%;
+    margin-right: 35px;
+}
+
+.left-side-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 15px;
+}
+
+.left-side-card > .bill-amount {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.bill-amount > label {
+    margin-bottom: 8px;
+}
+
+.left-side-card > .tip-percentage {
+    display: flex;
+    flex-direction: column;
+}
+
+.tip-percentage > p {
+    margin-bottom: 8px;
+}
+
+.tip-percentage-button {
+    width: 30%;
+    font-size: 16pt;
+}
+
+.tip-opts-topside {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.tip-opts-downside {
+    display: flex;
+    justify-content: space-between;
+}
+
+.people {
+    display: flex;
+    flex-direction: column;
+}
+
+.people > label {
+    margin-bottom: 8px;
+}
+
+/* RIGHT-SIDE */
+.right-side {
+    width: 50%;
+}
+
+.right-side-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: hsl(183, 100%, 15%);
+    width: 100%;
+    padding: 40px;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.tip-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.total-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tip-value,
+.total-value {
+    color: hsl(172, 67%, 45%);
+    font-size: 35pt;
+}
+
+.amount-text,
+.total-text {
+    color: hsl(0, 0%, 100%);
+}
+
+.amount-text > a,
+.total-text > a {
+    color: hsl(184, 14%, 56%);
+}
