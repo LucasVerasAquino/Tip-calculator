@@ -9,19 +9,29 @@
     </head>
     <body>
         <div class="container">
-            <div class="tittle">
-                <h1>
-                    SPLI <br />
-                    TTER
-                </h1>
-            </div>
+            <h1 class="tittle">
+                SPLI <br />
+                TTER
+            </h1>
 
             <div class="main-card">
                 <div class="left-side">
                     <div class="left-side-card">
                         <div class="bill-amount">
                             <label for="bill">Bill</label>
-                            <input type="text" name="bill" id="bill" />
+                            <input
+                                type="number"
+                                name="bill"
+                                id="bill"
+                                class="bill-input"
+                                placeholder="0"
+                            />
+                            <img
+                                src="./images/icon-dollar.svg"
+                                alt="Dollar Icon"
+                                class="dollar-icon"
+                            />
+                            <p class="bill-error-message">Can't be zero</p>
                         </div>
 
                         <div class="tip-percentage">
@@ -46,9 +56,9 @@
                                         50%
                                     </button>
                                     <input
-                                        type="text"
-                                        placeholder="custom"
-                                        class="tip-percentage-button"
+                                        type="number"
+                                        placeholder="Custom"
+                                        class="custom-percentage-button"
                                     />
                                 </div>
                             </div>
@@ -59,10 +69,18 @@
                                 >Number of people</label
                             >
                             <input
-                                type="text"
+                                type="number"
                                 name="number-of-people"
                                 id="number-of-people"
+                                class="people-input"
+                                placeholder="0"
                             />
+                            <img
+                                src="./images/icon-person.svg"
+                                alt=""
+                                class="person-icon"
+                            />
+                            <p class="people-error-message">Can't be zero</p>
                         </div>
                     </div>
                 </div>
