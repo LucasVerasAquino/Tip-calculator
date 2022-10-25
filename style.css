@@ -36,8 +36,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 940px;
-    padding: 32px;
+    width: 960px;
+    padding: 31px;
     border-radius: 25px;
     margin-top: 100px;
 }
@@ -54,7 +54,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 12px;
+    padding: 10px;
 }
 
 .left-side-card > .bill-amount {
@@ -81,7 +81,7 @@ body {
 }
 
 .tip-percentage > p {
-    margin-bottom: 15px;
+    font-size: 12.4pt;
     color: hsl(186, 14%, 43%);
 }
 
@@ -93,6 +93,7 @@ body {
     border: none;
     background-color: hsl(183, 100%, 15%);
     color: hsl(0, 0%, 100%);
+    margin-top: 16px;
 }
 
 .tip-percentage-button:hover {
@@ -109,14 +110,16 @@ body {
 .custom-percentage-button {
     padding: 8px 4px;
     border-radius: 5px;
-    width: 30%;
+    width: 31%;
     font-size: 19pt;
     border: none;
     background-color: hsl(183, 100%, 15%);
     color: hsl(0, 0%, 100%);
     background-color: hsl(189, 41%, 97%);
+    outline-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
     text-align: end;
+    margin-top: 16px;
 }
 
 .custom-percentage-button::placeholder {
@@ -124,14 +127,9 @@ body {
     text-align: center;
 }
 
-.tip-opts-topside {
+.tip-opts {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.tip-opts-downside {
-    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -152,17 +150,17 @@ body {
     color: hsl(186, 14%, 43%);
 }
 
-.people > input,
-.bill-amount > input {
+.bill-input,
+.people-input {
     color: hsl(183, 100%, 15%);
     border-color: hsl(189, 41%, 97%);
     border-style: solid;
     border-radius: 6px;
     outline-color: hsl(172, 67%, 45%);
     background-color: hsl(189, 41%, 97%);
-    padding: 6px 16px;
+    padding: 4px 15px;
     text-align: end;
-    font-size: 18pt;
+    font-size: 20pt;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -171,10 +169,11 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.people > input::placeholder,
-.bill-amount > input::placeholder {
+.bill-input::placeholder,
+.people-input::placeholder {
     text-align: end;
-    font-size: 18pt;
+    font-size: 20pt;
+    color: hsla(183, 14%, 66%, 0.85);
 }
 
 /* ERROR */
@@ -224,7 +223,7 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .total-amount {
@@ -263,6 +262,12 @@ input[type="number"]::-webkit-outer-spin-button {
 .reset-button:hover {
     cursor: pointer;
     background-color: hsla(172, 67%, 80%, 0.8);
+}
+
+.reset-button.unable {
+    cursor: default;
+    background-color: hsl(183, 75%, 25%);
+    color: hsla(183, 100%, 15%, 0.45);
 }
 
 /* LAPTOP */
@@ -351,12 +356,12 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 
     .tittle {
-        font-size: 18.5pt;
+        font-size: 17pt;
         letter-spacing: 11.5px;
         font-weight: bold;
         color: hsl(183, 100%, 15%);
         position: absolute;
-        top: 35px;
+        top: 31px;
     }
 
     .main-card {
@@ -366,8 +371,8 @@ input[type="number"]::-webkit-outer-spin-button {
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: 85vh;
-        padding: 25px;
+        height: 86vh;
+        padding: 28px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         border-bottom-left-radius: 0;
@@ -390,6 +395,52 @@ input[type="number"]::-webkit-outer-spin-button {
         padding: 8px;
     }
 
+    .tip-percentage-button {
+        padding: 7px 3px;
+        border-radius: 5px;
+        width: 47%;
+        font-size: 17.5pt;
+        border: none;
+        background-color: hsl(183, 100%, 15%);
+        color: hsl(0, 0%, 100%);
+        margin-top: 16px;
+    }
+
+    .custom-percentage-button {
+        padding: 7px 3px;
+        border-radius: 5px;
+        width: 47%;
+        font-size: 17.5pt;
+        border: none;
+        background-color: hsl(183, 100%, 15%);
+        color: hsl(0, 0%, 100%);
+        background-color: hsl(189, 41%, 97%);
+        color: hsl(183, 100%, 15%);
+        text-align: end;
+        margin-top: 16px;
+    }
+
+    .people > input,
+    .bill-amount > input {
+        color: hsl(183, 100%, 15%);
+        border-color: hsl(189, 41%, 97%);
+        border-style: solid;
+        border-radius: 6px;
+        outline-color: hsl(172, 67%, 45%);
+        background-color: hsl(189, 41%, 97%);
+        padding: 5px 15px;
+        text-align: end;
+        font-size: 18pt;
+    }
+
+    .people > label {
+        font-size: 13pt;
+    }
+
+    .tip-percentage > p {
+        margin-bottom: 0;
+    }
+
     /* DOWNSIDE-SIDE */
     .right-side {
         width: 100%;
@@ -401,7 +452,7 @@ input[type="number"]::-webkit-outer-spin-button {
         justify-content: space-between;
         background-color: hsl(183, 100%, 15%);
         width: 100%;
-        padding: 25px;
+        padding: 27px;
         height: 250px;
         border-radius: 15px;
     }
@@ -417,5 +468,15 @@ input[type="number"]::-webkit-outer-spin-button {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .reset-button {
+        outline: none;
+        border: none;
+        background-color: hsl(172, 67%, 45%);
+        padding: 11px;
+        font-size: 15pt;
+        color: hsl(183, 100%, 15%);
+        border-radius: 6px;
     }
 }
