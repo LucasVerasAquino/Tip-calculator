@@ -1,5 +1,7 @@
 const billValueInput = document.querySelector(".bill-input");
 const peopleAmountInput = document.querySelector(".people-input");
+const showTipValue = document.querySelector(".tip-value");
+const showTotalValue = document.querySelector(".total-text");
 const percentageButtonOptions = document.querySelectorAll(
     ".tip-percentage-button"
 );
@@ -32,7 +34,7 @@ const selectPercentageButton = () => {
             getTipValue();
             getTipValuePerPerson();
             getTotalBillValuePerPerson();
-            console.log(getTotalBillValuePerPerson());
+            updateValues();
         });
     }
 };
@@ -98,6 +100,12 @@ const getTotalBillValuePerPerson = () => {
 };
 
 //Atualizar o valor mostrado ao mudar o valor de bill e ao mudar quantidade de pessoas
+const updateValues = () => {
+    const tipValuePerPerson = showTipValue;
+    const totalValuePerPerson = showTotalValue;
+
+    tipValuePerPerson.innerText = getTipValuePerPerson();
+};
 
 selectPercentageButton();
 
@@ -115,7 +123,7 @@ customPercentageButton.addEventListener("keyup", () => {
     getTipValue();
     getTipValuePerPerson();
     getTotalBillValuePerPerson();
-    console.log(getTotalBillValuePerPerson());
+    updateValues();
 });
 
 //eventListener para o billInput
@@ -126,8 +134,7 @@ billValueInput.addEventListener("keyup", () => {
         getSelectedPercentage();
         getTipValue();
         getTipValuePerPerson();
-        getTotalBillValuePerPerson();
-        console.log(getTotalBillValuePerPerson());
+        updateValues();
     }
 });
 
@@ -139,6 +146,6 @@ peopleAmountInput.addEventListener("keyup", () => {
         getTipValue();
         getTipValuePerPerson();
         getTotalBillValuePerPerson();
-        console.log(getTotalBillValuePerPerson());
+        updateValues();
     }
 });
