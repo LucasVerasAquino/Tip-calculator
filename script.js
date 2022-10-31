@@ -2,6 +2,8 @@ const billValueInput = document.querySelector(".bill-input");
 const peopleAmountInput = document.querySelector(".people-input");
 const showTipValue = document.querySelector(".tip-value");
 const showTotalValue = document.querySelector(".total-value");
+const billErrorMessage = document.querySelector(".bill-error-message");
+const peopleInputErrorMessage = document.querySelector(".people-error-message");
 const percentageButtonOptions = document.querySelectorAll(
     ".tip-percentage-button"
 );
@@ -42,12 +44,14 @@ const getSelectedPercentage = () => {
     //Se o custom percentage estiver alguma numeração, retornar esse valor
     if (customPercentageButtonValue.length > 0) {
         return customPercentageButtonValue;
-    }
-
-    for (const percentageButton of percentageButtonOptions) {
-        if (percentageButton.classList.contains("selected")) {
-            return percentageButton.getAttribute("data-value");
+    } else {
+        for (const percentageButton of percentageButtonOptions) {
+            if (percentageButton.classList.contains("selected")) {
+                return percentageButton.getAttribute("data-value");
+            }
         }
+
+        return "0.00";
     }
 };
 
@@ -64,8 +68,12 @@ const isSomePercentageButtonSelected = () => {
 const getTipValue = () => {
     const billValue = billValueInput.value;
 
-    const tipValue = (billValue * getSelectedPercentage()) / 100;
-    return tipValue;
+    if (billValue.length > 0) {
+        const tipValue = (billValue * getSelectedPercentage()) / 100;
+        return tipValue;
+    } else {
+        return "0.00";
+    }
 };
 
 //Função para calcular a quantia em gorjeta divido para cada pessoa
@@ -92,8 +100,10 @@ const getTotalBillValuePerPerson = () => {
         const billValuePerPerson =
             (parseFloat(billValue) + parseFloat(tipValue)) / peopleAmount;
         return billValuePerPerson;
-    } else {
+    } else if (billValue.length > 0) {
         return parseFloat(billValue) + parseFloat(tipValue);
+    } else {
+        return "0.00";
     }
 };
 
@@ -101,14 +111,42 @@ const getTotalBillValuePerPerson = () => {
 const updateValues = () => {
     const tipValuePerPerson = showTipValue;
     const totalValuePerPerson = showTotalValue;
+    const billValue = billValueInput.value;
+    const peopleAmount = peopleAmountInput.value;
 
+    //Atualizando todos os cálculos
     getSelectedPercentage();
     getTipValue();
     getTipValuePerPerson();
     getTotalBillValuePerPerson();
 
-    tipValuePerPerson.innerText = "$" + getTipValuePerPerson();
-    totalValuePerPerson.innerText = "$" + getTotalBillValuePerPerson();
+    //Validando se o billInput está zerado
+    if (billValue.length > 0) {
+        billValueInput.classList.remove("error");
+        billErrorMessage.style.visibility = "hidden";
+    } else {
+        billValueInput.classList.add("error");
+        billErrorMessage.style.visibility = "visible";
+    }
+
+    //Validando se o peopleAmountInput está zerado
+    if (peopleAmount.length > 0) {
+        peopleAmountInput.classList.remove("error");
+        peopleInputErrorMessage.style.visibility = "hidden";
+    } else {
+        peopleAmountInput.classList.add("error");
+        peopleInputErrorMessage.style.visibility = "visible";
+    }
+
+    //Atualizando os valores mostrados ao usuário
+    if (billValue.length > 0) {
+        tipValuePerPerson.innerText = "$" + getTipValuePerPerson().toFixed(2);
+        totalValuePerPerson.innerText =
+            "$" + getTotalBillValuePerPerson().toFixed(2);
+    } else {
+        tipValuePerPerson.innerText = "$0.00";
+        totalValuePerPerson.innerText = "$0.00";
+    }
 };
 
 selectPercentageButton();
@@ -130,21 +168,17 @@ customPercentageButton.addEventListener("keyup", () => {
 billValueInput.addEventListener("keyup", () => {
     const billValue = billValueInput.value;
 
-    if (isSomePercentageButtonSelected()) {
-        updateValues();
-    }
+    //Rodando as funções para atualizar os valores
+    updateValues();
 });
 
 //eventListener para o peopleInput
-peopleAmountInput.addEventListener("keyup", () => {
-    const customPercentageButtonValue = customPercentageButton.value;
+peopleAmountInput.addEventListener("keyup", (e) => {
+    const billValue = billValueInput.value;
 
-    if (isSomePercentageButtonSelected()) {
-        updateValues();
-    }
+    //Rodando as funções para atualizar os valores
+    updateValues();
 });
-//Limitar as casas decimais no valor mostrado ao usuário
-//Resolver o NaN após zerar o custom percentage
-//Proibir entrada do caractere "." nos inputs
+
 //Não permitir casas decimais no input de pessoas
-//Resolver o NaN no total value per person
+//Fazer o botão de reset funcionar
