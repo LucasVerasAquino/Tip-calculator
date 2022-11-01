@@ -4,6 +4,7 @@ const showTipValue = document.querySelector(".tip-value");
 const showTotalValue = document.querySelector(".total-value");
 const billErrorMessage = document.querySelector(".bill-error-message");
 const peopleInputErrorMessage = document.querySelector(".people-error-message");
+const resetButton = document.querySelector(".reset-button");
 const percentageButtonOptions = document.querySelectorAll(
     ".tip-percentage-button"
 );
@@ -147,6 +148,19 @@ const updateValues = () => {
         tipValuePerPerson.innerText = "$0.00";
         totalValuePerPerson.innerText = "$0.00";
     }
+
+    ResetButtonIsAvailable();
+};
+
+const ResetButtonIsAvailable = () => {
+    const billValue = billValueInput.value;
+
+    if (getTipValue() > 0 && billValue.length > 0) {
+        resetButton.classList.remove("unable");
+        return true;
+    } else {
+        resetButton.classList.add("unable");
+    }
 };
 
 selectPercentageButton();
@@ -166,17 +180,25 @@ customPercentageButton.addEventListener("keyup", () => {
 
 //eventListener para o billInput
 billValueInput.addEventListener("keyup", () => {
-    const billValue = billValueInput.value;
-
     //Rodando as funções para atualizar os valores
     updateValues();
 });
 
 //eventListener para o peopleInput
 peopleAmountInput.addEventListener("keyup", (e) => {
-    const billValue = billValueInput.value;
-
     //Rodando as funções para atualizar os valores
+    updateValues();
+});
+
+resetButton.addEventListener("click", () => {
+    if (ResetButtonIsAvailable()) {
+        billValueInput.value = "";
+        peopleAmountInput.value = "";
+        for (const percentageButton of percentageButtonOptions) {
+            percentageButton.classList.remove("selected");
+        }
+    }
+
     updateValues();
 });
 
