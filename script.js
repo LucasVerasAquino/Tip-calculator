@@ -203,4 +203,4 @@ resetButton.addEventListener("click", () => {
 });
 
 //Não permitir casas decimais no input de pessoas
-//Fazer o botão de reset funcionar
+//Regex para entrada somente de número nos inputs
