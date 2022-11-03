@@ -180,6 +180,13 @@ customPercentageButton.addEventListener("keyup", () => {
 
 //eventListener para o billInput
 billValueInput.addEventListener("keyup", () => {
+    const billValue = billValueInput.value;
+
+    if (!checkValueInput(billValue)) {
+        billErrorMessage.innerText = "Enter a valid value";
+        billValueInput.value = "";
+    }
+
     //Rodando as funções para atualizar os valores
     updateValues();
 });
@@ -188,7 +195,8 @@ billValueInput.addEventListener("keyup", () => {
 peopleAmountInput.addEventListener("keyup", () => {
     const peopleAmount = peopleAmountInput.value;
 
-    if (!checkPeopleAmount(peopleAmount)) {
+    //Se caractere inserido na quantidade de pessoas não for um inteiro positivo, retornar erro
+    if (!checkValueInput(peopleAmount)) {
         peopleInputErrorMessage.innerText = "Enter a valid value";
         peopleAmountInput.value = "";
     }
@@ -209,8 +217,10 @@ resetButton.addEventListener("click", () => {
     updateValues();
 });
 
-//Não permitir casas decimais no input de pessoas
-//Regex para entrada somente de número nos inputs
 function checkPeopleAmount(peopleAmount) {
     return /^\d+$/.test(peopleAmount);
+}
+
+function checkValueInput(billValue) {
+    return /^\d*\.?\d+$/.test(billValue);
 }
