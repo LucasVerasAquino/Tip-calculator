@@ -188,7 +188,7 @@ billValueInput.addEventListener("keyup", () => {
 peopleAmountInput.addEventListener("keyup", () => {
     const peopleAmount = peopleAmountInput.value;
 
-    if (checkPeopleAmount(peopleAmount)) {
+    if (!checkPeopleAmount(peopleAmount)) {
         peopleInputErrorMessage.innerText = "Enter a valid value";
         peopleAmountInput.value = "";
     }
@@ -212,5 +212,5 @@ resetButton.addEventListener("click", () => {
 //Não permitir casas decimais no input de pessoas
 //Regex para entrada somente de número nos inputs
 function checkPeopleAmount(peopleAmount) {
-    return /^[a-zA-Z]+$/.test(peopleAmount);
+    return /^\d+$/.test(peopleAmount);
 }
