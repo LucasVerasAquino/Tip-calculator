@@ -185,7 +185,13 @@ billValueInput.addEventListener("keyup", () => {
 });
 
 //eventListener para o peopleInput
-peopleAmountInput.addEventListener("keyup", (e) => {
+peopleAmountInput.addEventListener("keyup", () => {
+    const peopleAmount = peopleAmountInput.value;
+
+    if (!checkPeopleAmount(peopleAmount)) {
+        peopleAmountInput.preventDefault();
+    }
+
     //Rodando as funções para atualizar os valores
     updateValues();
 });
@@ -204,3 +210,6 @@ resetButton.addEventListener("click", () => {
 
 //Não permitir casas decimais no input de pessoas
 //Regex para entrada somente de número nos inputs
+function checkPeopleAmount(peopleAmount) {
+    return /^\d+$/.test(peopleAmount);
+}
