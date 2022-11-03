@@ -347,7 +347,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* MOBILE */
 @media (max-width: 416px) {
     .container {
-        height: 940px;
+        height: 960px;
         display: flex;
         align-items: center;
         justify-content: end;
