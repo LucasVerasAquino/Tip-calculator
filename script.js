@@ -183,7 +183,6 @@ billValueInput.addEventListener("keyup", () => {
     const billValue = billValueInput.value;
 
     if (!checkValueInput(billValue)) {
-        billErrorMessage.innerText = "Enter a valid value";
         billValueInput.value = "";
     }
 
@@ -196,8 +195,7 @@ peopleAmountInput.addEventListener("keyup", () => {
     const peopleAmount = peopleAmountInput.value;
 
     //Se caractere inserido na quantidade de pessoas não for um inteiro positivo, retornar erro
-    if (!checkValueInput(peopleAmount)) {
-        peopleInputErrorMessage.innerText = "Enter a valid value";
+    if (!checkPeopleAmount(peopleAmount)) {
         peopleAmountInput.value = "";
     }
 
@@ -207,14 +205,21 @@ peopleAmountInput.addEventListener("keyup", () => {
 
 resetButton.addEventListener("click", () => {
     if (ResetButtonIsAvailable()) {
+        //Zerando o valor dos inputs ao clicar botão de reset
         billValueInput.value = "";
         peopleAmountInput.value = "";
+        //Atualizando os valores logo após zerar os inputs
+        updateValues();
+        //Removendo os erros
+        billValueInput.classList.remove("error");
+        billErrorMessage.style.visibility = "hidden";
+        peopleAmountInput.classList.remove("error");
+        peopleInputErrorMessage.style.visibility = "hidden";
+        //Retirando a seleção das opções de porcentagem
         for (const percentageButton of percentageButtonOptions) {
             percentageButton.classList.remove("selected");
         }
     }
-
-    updateValues();
 });
 
 function checkPeopleAmount(peopleAmount) {
