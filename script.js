@@ -149,6 +149,7 @@ const updateValues = () => {
         totalValuePerPerson.innerText = "$0.00";
     }
 
+    //Executando função para verificar se deve ou não disponibilizar o botão de reset
     ResetButtonIsAvailable();
 };
 
