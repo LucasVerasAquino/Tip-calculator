@@ -359,7 +359,8 @@ input[type="number"]::-webkit-outer-spin-button {
         letter-spacing: 11.5px;
         font-weight: bold;
         color: hsl(183, 100%, 15%);
-        top: 42px;
+        position: inherit;
+        top: 80px;
     }
 
     .main-card {
@@ -371,6 +372,7 @@ input[type="number"]::-webkit-outer-spin-button {
         width: 100vw;
         height: 100vh;
         padding: 28px;
+        margin-top: 120px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         border-bottom-left-radius: 0;
