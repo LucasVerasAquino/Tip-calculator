@@ -208,6 +208,7 @@ resetButton.addEventListener("click", () => {
         //Zerando o valor dos inputs ao clicar botão de reset
         billValueInput.value = "";
         peopleAmountInput.value = "";
+        customPercentageButton.value = "";
         //Atualizando os valores logo após zerar os inputs
         updateValues();
         //Removendo os erros
