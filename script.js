@@ -212,7 +212,7 @@ resetButton.addEventListener("click", () => {
         customPercentageButton.value = "";
         //Atualizando os valores logo após zerar os inputs
         updateValues();
-        //Removendo os erros
+        //Removendo os erros dos inputs
         billValueInput.classList.remove("error");
         billErrorMessage.style.visibility = "hidden";
         peopleAmountInput.classList.remove("error");
