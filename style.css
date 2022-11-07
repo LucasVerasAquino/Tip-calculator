@@ -173,7 +173,7 @@ input[type="number"]::-webkit-outer-spin-button {
     color: hsla(183, 14%, 66%, 0.85);
 }
 
-/* ERROR */
+/* ERROR  */
 .bill-error-message {
     visibility: hidden;
     position: absolute;
